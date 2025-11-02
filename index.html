@@ -2,73 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+    <title>Inicio - Mis mascotas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body { background-color: #fdfaf6; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .card img { transition: transform 0.4s ease; }
+    .card:hover img { transform: scale(1.05); }
+    .navbar.scrolled { background-color: rgba(0,0,0,0.8) !important; }
+    .btn-primary{ background-color: #cd61ff; border: none; }
+    .btn-primary:hover{ background-color: #731e9b; }
+    .btn-primary:active{ background-color: #52006a !important; }
+    </style>  
 
-        nav {
-            background-color: #169254;
-            padding: 10px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        nav ul li a:hover {
-            color: #083b1b;
-        }
-
-        .contenido {
-            padding: 60px 20px;
-        }
-        .contenido img {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        .texto {
-            font-size: 36px;
-            font-weight: bold;
-            color: #222;
-            margin-top: 40px;
-        }
-    </style>
 </head>
 <body>
 <!-- Menu de navegación -->
-     <nav>
-        <ul>
-            <li><a href="">Pagina 1</a></li>
-            <li><a href="">Pagina 2</a></li>
-            <li><a href="">Pagina 3</a></li>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🐾 Mis mascotas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="pagina1.html">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="pagina2.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="pagina3.html">Momentos</a></li>
         </ul>
-     </nav>
-     <!-- Contenido Act2 -->
-      <div class="contenido">
-            <img src="/gatito.jpg" alt="imagen de gatito">
-            
-            <div class="texto">
-                Actividad 2
-            </div>
       </div>
+    </div>
+  </nav>
+
+  <header class="bg-light text-center py-5 mt-5 fade-in">
+    <h1 class="fw-bold">Bienvenido</span></h1>
+    <p class="lead">Una página hecha con amor para mis mascotas</p>
+  </header>
+
+  <main class="container my-5 fade-in">
+    <div id="carouselMascota" class="carousel slide mb-4" data-bs-ride="carousel">
+      <div class="carousel-inner rounded">
+        <div class="carousel-item active"><img src="images/mascota1.jpg" class="d-block w-100" alt=""></div>
+        <div class="carousel-item"><img src="images/mascota2.jpg" class="d-block w-100" alt=""></div>
+        <div class="carousel-item"><img src="images/mascota3.jpg" class="d-block w-100" alt=""></div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4 fade-in">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Sus historias</h5>
+            <p class="card-text">Descubre cómo llegaron a mi vida y lo especiales que se han vuelto desde entonces.</p>
+            <a href="pagina1.html" class="btn btn-primary">Ver más</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Galería</h5>
+            <p class="card-text">Mira algunas de sus mejores fotos y momentos felices.</p>
+            <a href="pagina2.html" class="btn btn-primary">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-in">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Momentos favoritos</h5>
+            <p class="card-text">Una colección de recuerdos que me hacen sonreír cada vez que los recuerdo.</p>
+            <a href="pagina3.html" class="btn btn-primary">Ver momentos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-3 bg-light mt-5">
+    <p class="mb-0">Hecho con amor para: Margot, Misty y Mango</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    window.addEventListener('scroll',()=>{document.querySelector('.navbar').classList.toggle('scrolled',window.scrollY>50)});
+  </script>
 </body>
 </html>
