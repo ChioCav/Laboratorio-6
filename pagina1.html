@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis mascotas - sus historias</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #fdfaf6; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .card img { transition: transform 0.4s ease; }
+    .card:hover img { transform: scale(1.05); }
+    .navbar.scrolled { background-color: rgba(0,0,0,0.8) !important; }
+    .active { font-weight: bold; color: #ff7b00 !important; }
+  </style>
+</head>
+<body>
+
+  <!-- Menu de navegacion-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">🐾 Mis mascotas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="historia.html">Historia</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeria.html">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="momentos.html">Momentos</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header class="text-center py-5 mt-5 fade-in">
+    <h1 class="fw-bold">Las historias de <span class="text-primary">mis mascotas</span></h1>
+    <p class="lead">Unos gatitos curiosos, amorosos y llenos de energía que conquistaron mi corazón.</p>
+  </header>
+
+ 
+  <main class="container my-5 fade-in">
+    <p>El primero en llegar, Mango. <br> Despues de años intentando que me dejaran tener gato, se logra con la llegada de Mango, pues yo me encontraba en un punto de mi vida muy deprimida, en donde solo buscaba un compañero, ahí es donde aparece, con una personalidad juguetona y una energía interminable. </p>
+    <p>Misty, en busca de una compañera para Mango, la encuentro a ella para darle ot</p>
+    <p></p>
+
+    <div class="row g-4 my-4">
+      <div class="col-md-4"><img src="images/gato4.jpg" class="img-fluid rounded" alt="Margot pequeña"></div>
+      <div class="col-md-4"><img src="images/gato5.jpg" class="img-fluid rounded" alt="Margot jugando"></div>
+      <div class="col-md-4"><img src="images/gato6.jpg" class="img-fluid rounded" alt="Margot descansando"></div>
+    </div>
+
+    <div class="progress my-4">
+      <div class="progress-bar bg-warning" style="width: 100%">Curiosidad 100%</div>
+    </div>
+    <div class="progress my-3">
+      <div class="progress-bar bg-success" style="width: 90%">Cariño 90%</div>
+    </div>
+  </main>
+
+  <footer class="text-center py-3 bg-light mt-5">
+    <p class="mb-0">Con amor, cada día junto a Margot 💛</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const observer = new IntersectionObserver(entries => {entries.forEach(e => {if (e.isIntersecting) e.target.classList.add('visible');});},{threshold:0.2});
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    window.addEventListener('scroll',()=>{document.querySelector('.navbar').classList.toggle('scrolled',window.scrollY>50)});
+  </script>
+</body>
+</html>
